@@ -100,7 +100,7 @@ export function ChatInterface({
     const startTime = performance.now();
     try {
       const res = await fetch(
-        `http://localhost:8000/chat?message=${encodeURIComponent(userMessage)}`
+        `${process.env.NEXT_PUBLIC_API_URL}/chat?message=${encodeURIComponent(userMessage)}`
       );
 
       const data = await res.json();
