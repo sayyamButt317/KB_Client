@@ -5,6 +5,7 @@ import type { ChatMessage, SessionInfo } from "@/Types/chat.types";
 import { ChatMessageBubble } from "./ChatMessageBubble";
 import { ChatThinkingIndicator } from "./ChatThinkingIndicator";
 import { ChatInputBar } from "./ChatInputBar";
+import { estimateTokens } from "./tokencallculation";
 
 interface ChatInterfaceProps {
   onSessionUpdate?: (session: SessionInfo) => void;
@@ -29,9 +30,6 @@ function extractTopSources(messages: ChatMessage[]): SessionInfo["topSources"] {
   });
 }
 
-function estimateTokens(text: string): number {
-  return Math.ceil(text.length / 4);
-}
 
 export function ChatInterface({
   onSessionUpdate,
@@ -110,8 +108,8 @@ export function ChatInterface({
         ...prev,
         {
           role: "assistant",
-          content: data.message,
-          documents: data.docs,
+          content: data.message ?? "",
+          documents: Array.isArray(data.docs) ? data.docs : [],
           timestamp: new Date().toLocaleTimeString([], {
             hour: "numeric",
             minute: "2-digit",

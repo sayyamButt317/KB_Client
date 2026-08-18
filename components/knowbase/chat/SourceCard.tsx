@@ -21,9 +21,9 @@ export function SourceCard({ doc, referenceText }: SourceCardProps) {
             <p className="text-xs text-gray-500">Page {pageNum}</p>
           )}
         </div>
-        <span className="shrink-0 rounded-full bg-[#EEF2FF] px-2 py-0.5 text-[10px] font-semibold text-[#6366F1]">
+        {/* <span className="shrink-0 rounded-full bg-[#EEF2FF] px-2 py-0.5 text-[10px] font-semibold text-[#6366F1]">
           98% Confidence
-        </span>
+        </span> */}
       </div>
       {referenceText && (
         <p className="mt-2 text-xs text-gray-600 line-clamp-3">
@@ -36,13 +36,13 @@ export function SourceCard({ doc, referenceText }: SourceCardProps) {
           {doc.pageContent && doc.pageContent.length > 200 ? "…" : ""}
         </p>
       )}
-      <button
+      {/* <button
         type="button"
         className="mt-2 inline-flex items-center gap-1 text-xs font-medium text-[#6366F1] hover:text-[#4F46E5]"
       >
         View source
         <ArrowRight className="h-3 w-3" />
-      </button>
+      </button> */}
     </div>
   );
 }

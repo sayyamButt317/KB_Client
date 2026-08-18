@@ -49,9 +49,9 @@ export function RightSidebar({ session }: RightSidebarProps) {
         <h3 className="text-sm font-semibold text-gray-900">
           Top Sources in this Session
         </h3>
-        {session.topSources.length > 0 ? (
+        {(session.topSources ?? []).length > 0 ? (
           <ul className="mt-3 space-y-2">
-            {session.topSources.map((source, index) => (
+            {(session.topSources ?? []).map((source, index) => (
               <li
                 key={`${source.name}-${index}`}
                 className="flex items-center justify-between gap-2"
